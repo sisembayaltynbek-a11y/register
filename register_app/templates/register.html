@@ -17,10 +17,11 @@
 
         form {
             background-color: #fff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            width: 300px;
+            width: 375px;
+            height: 425px;
         }
 
         h1 {
@@ -63,7 +64,7 @@
 </head>
 <body>
     <form method="post">
-        {% csrf_token %}
+        {% csrf_token %}<br>
         <h1>Тіркелу</h1>
 
         <label for="fullname">Аты-жөніңіз:</label>
