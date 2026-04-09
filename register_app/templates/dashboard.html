@@ -1,8 +1,9 @@
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registered Users</title>
     <style>
         body {
@@ -10,23 +11,32 @@
             padding: 20px;
             background-color: #f8f8f8;
             color: #333;
+            margin: 0;
+            box-sizing: border-box;
         }
 
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
         }
 
         table {
-            width: 80%;
-            margin: 0 auto;
+            width: 100%;
             border-collapse: collapse;
+            min-width: 300px;
         }
 
         th, td {
             border: 1px solid #ccc;
-            padding: 10px 15px;
+            padding: 10px 8px;
             text-align: center;
+            font-size: 1rem;
         }
 
         th {
@@ -42,39 +52,59 @@
             background-color: #ddd;
         }
 
-        button{
-            width: 40%;
-            margin: 0 auto;
-            padding: 10px 5px;
-            border-collapse: collapse;
+        .download-button {
+            display: block;
+            width: 80%;
+            max-width: 250px;
+            margin: 20px auto;
+            padding: 10px 0;
             background-color: #4CAF50;
             border: none;
             border-radius: 52px;
             color: white;
             font-weight: bold;
             cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            th, td {
+                padding: 8px 5px;
+                font-size: 0.9rem;
+            }
+
+            .download-button {
+                width: 90%;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-<body><br>
-    <h1>Тіркелген адамдар информациясы</h1><br>
-    <table>
-        <tr>
-            <th>Аты жөні</th>
-            <th>Мектеп атауы</th>
-            <th>Аудан атауы</th>
-        </tr>
-        {% for user in people %}
-        <tr>
-            <td>{{ user.fullname }}</td>
-            <td>{{ user.schoolname }}</td>
-            <td>{{ user.area }}</td>
-        </tr>
-        {% endfor %}
-    </table><br>
-    <a href="{% url 'export_registers' %}">
-        <button>Download Excel</button>
-    </a>
+<body>
+    <h1>Тіркелген адамдар информациясы</h1>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Аты жөні</th>
+                <th>Мектеп атауы</th>
+                <th>Аудан атауы</th>
+            </tr>
+            {% for user in people %}
+            <tr>
+                <td>{{ user.fullname }}</td>
+                <td>{{ user.schoolname }}</td>
+                <td>{{ user.area }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'export_registers' %}" class="download-button">Download Excel</a>
 </body>
 </html>
 {% endblock %}

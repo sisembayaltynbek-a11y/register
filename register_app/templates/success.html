@@ -1,8 +1,9 @@
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сәтті Тіркелу!</title>
     <style>
         body {
@@ -15,6 +16,17 @@
             margin: 0;
             text-align: center;
             color: #2e7d32;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        div {
+            background-color: #ffffff;
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
         }
 
         h1 {
@@ -24,6 +36,22 @@
 
         p {
             font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            div {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>

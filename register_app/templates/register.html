@@ -3,6 +3,7 @@
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тіркелу</title>
     <style>
         body {
@@ -13,59 +14,92 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
         }
 
         form {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            width: 475px;
-            height: 540px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 400px; /* Will shrink on small screens */
+            box-sizing: border-box;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #333;
+            font-size: 1.8rem;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             color: #555;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
 
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            width: 95%;
-            padding: 8px;
+            width: 100%;
+            padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
         }
 
         input[type="submit"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #4CAF50;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             color: white;
             font-weight: bold;
+            font-size: 1rem;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            form {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                padding: 8px;
+                font-size: 0.95rem;
+            }
+
+            input[type="submit"] {
+                padding: 10px;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
     <form method="post">
-        {% csrf_token %}<br><br><br>
-        <h1>Тіркелу</h1><br><br>
+        {% csrf_token %}
+        <h1>Тіркелу</h1>
 
         <label for="fullname">Аты-жөніңіз:</label>
         <input type="text" id="fullname" name="fullname" required>
@@ -74,9 +108,9 @@
         <input type="text" id="schoolname" name="schoolname" required>
 
         <label for="area">Аймақ:</label>
-        <input type="text" id="area" name="area" required><br><br><br>
+        <input type="text" id="area" name="area" required>
 
-        <input type="submit" value="Тіркелу"><br><br><br>
+        <input type="submit" value="Тіркелу">
     </form>
 </body>
 </html>
