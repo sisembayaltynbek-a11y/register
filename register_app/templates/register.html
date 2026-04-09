@@ -20,8 +20,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            width: 375px;
-            height: 425px;
+            width: 475px;
+            height: 540px;
         }
 
         h1 {
@@ -64,8 +64,8 @@
 </head>
 <body>
     <form method="post">
-        {% csrf_token %}<br>
-        <h1>Тіркелу</h1>
+        {% csrf_token %}<br><br><br>
+        <h1>Тіркелу</h1><br><br>
 
         <label for="fullname">Аты-жөніңіз:</label>
         <input type="text" id="fullname" name="fullname" required>
@@ -74,9 +74,9 @@
         <input type="text" id="schoolname" name="schoolname" required>
 
         <label for="area">Аймақ:</label>
-        <input type="text" id="area" name="area" required><br><br>
+        <input type="text" id="area" name="area" required><br><br><br>
 
-        <input type="submit" value="Тіркелу"><br><br>
+        <input type="submit" value="Тіркелу"><br><br><br>
     </form>
 </body>
 </html>
